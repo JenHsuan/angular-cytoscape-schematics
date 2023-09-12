@@ -4,6 +4,7 @@
   "description": "An Angular schematics to setup the Cytoscape for the empty Angular project.",
   "scripts": {
     "build": "tsc -p tsconfig.json",
+    "watch": "ng build --watch --configuration development",
     "test": "npm run build && jasmine src/**/*_spec.js"
   },
   "keywords": [

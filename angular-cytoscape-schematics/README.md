@@ -1,28 +1,38 @@
-# Getting Started With Schematics
+# angular-cytoscape-schematics
+It's an Angular schematics to setup the Cytoscape for the empty Angular project.
 
-This repository is a basic Schematic implementation that serves as a starting point to create and publish Schematics to NPM.
+### Abilities
+* Setup the Cytoscape for the empty project
 
-### Testing
+### Compatability
+* Angular 13
 
-To test locally, install `@angular-devkit/schematics-cli` globally and use the `schematics` command line tool. That tool acts the same as the `generate` command of the Angular CLI, but also has a debug mode.
-
-Check the documentation with
-
-```bash
-schematics --help
+# Usages
+1. Create a new Angular application
+```
+ng new my-app
 ```
 
-### Unit Testing
-
-`npm run test` will run the unit tests, using Jasmine as a runner and test framework.
-
-### Publishing
-
-To publish, simply do:
-
-```bash
-npm run build
-npm publish
+2. Install Angular schematics-cli
+```
+npm install -g @angular-devkit/schematics-cli
 ```
 
-That's it!
+3. Install this package
+```
+npm install --save angular-cytoscape-schematics
+```
+
+4. Run the following schematics in an Empty Angular project
+```
+cd my-app
+schematics angular-cytoscape-schematics:angular-cytoscape-schematics --deb
+ug=false
+```
+
+5. Execute the application
+```
+npm start
+```
+
+# References
