@@ -1,13 +1,12 @@
 # angular-cytoscape-schematics
-It's an Angular schematics to setup the Cytoscape for the empty Angular project.
+An Angular schematics command to setup the Cytoscape for the empty Angular project automatically.
 
-### Abilities
-* Setup the Cytoscape for the empty project
+![demo](https://raw.githubusercontent.com/JenHsuan/angular-cytoscape-schematics/master/demo/screen-shot.png)
 
 ### Compatability
 * Angular 13
 
-# Usages
+# Usage
 1. Create a new Angular application
 ```
 ng new my-app
@@ -36,3 +35,4 @@ npm start
 ```
 
 # References
+* [Quick Guide to Angular Schematics: How I Built My First Schematic](https://stefaniefluin.medium.com/quick-guide-to-angular-schematics-how-i-built-my-first-schematic-2c81a486dd3a)
