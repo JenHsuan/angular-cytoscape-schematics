@@ -3,10 +3,10 @@ An Angular schematics command to setup the Cytoscape for the empty Angular proje
 
 ![demo](https://raw.githubusercontent.com/JenHsuan/angular-cytoscape-schematics/master/demo/screen-shot.png?token=GHSAT0AAAAAACHIZXE3NAIJ4TITJV7IH64AZIAOLUA)
 
-### Compatability
+## Compatability
 * Angular 13
 
-# Usage
+## Usage
 1. Create a new Angular application
 ```
 ng new my-app
