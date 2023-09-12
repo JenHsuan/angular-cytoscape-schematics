@@ -1,0 +1,35 @@
+{
+  "nodes": [
+    { "data": { "id": "device2", "label": "Device 2" }, "classes": "device" },
+    { "data": { "id": "device1", "label": "Device 1" }, "classes": "device" },
+    { "data": { "id": "device3", "label": "Device 3" }, "classes": "device" },
+    { "data": { "id": "gateway1", "label": "Gateway 1" }, "classes": "gateway" },
+    { "data": { "id": "gateway2", "label": "Gateway 2" }, "classes": "gateway" },
+    { "data": { "id": "gateway3", "label": "Gateway 3" }, "classes": "gateway" },
+    { "data": { "id": "FortiNAC", "label": "NAC" }, "classes": "nac" },
+    { "data": { "id": "wan", "label": "Wan" }, "classes": "wan" },
+    { "data": { "source": "wan", "target": "gateway1" }, "classes": "layer1" },
+    { "data": { "source": "wan", "target": "gateway2" }, "classes": "layer1" },
+    { "data": { "source": "wan", "target": "gateway3" }, "classes": "layer1" },
+
+    { "data": { "source": "gateway1", "target": "device1", "label": "VLAN 170" }, "classes": "layer2-1" },
+    { "data": { "source": "gateway1", "target": "device1", "label": "VLAN 160" }, "classes": "layer2-2" },
+    { "data": { "source": "gateway1", "target": "device1", "label": "VLAN 150" }, "classes": "layer2-3" },
+    { "data": { "source": "gateway1", "target": "device1", "label": "VLAN 450" }, "classes": "layer2-4" },
+    { "data": { "source": "gateway1", "target": "device1", "label": "VLAN 450" }, "classes": "layer2-5" },
+
+    { "data": { "source": "gateway2", "target": "device2", "label": "VLAN 270"}, "classes": "layer2-1" },
+    { "data": { "source": "gateway2", "target": "device2", "label": "VLAN 260" }, "classes": "layer2-2" },
+    { "data": { "source": "gateway2", "target": "device2", "label": "VLAN 250" }, "classes": "layer2-3" },
+    { "data": { "source": "gateway2", "target": "device2", "label": "VLAN 450" }, "classes": "layer2-4" },
+    { "data": { "source": "gateway2", "target": "device2", "label": "VLAN 450" }, "classes": "layer2-5" },
+
+    { "data": { "source": "gateway3", "target": "device3", "label": "VLAN 370"}, "classes": "layer2-1" },
+    { "data": { "source": "gateway3", "target": "device3", "label": "VLAN 360" }, "classes": "layer2-2" },
+    { "data": { "source": "gateway3", "target": "device3", "label": "VLAN 350" }, "classes": "layer2-3" },
+    { "data": { "source": "gateway3", "target": "device3", "label": "VLAN 450" }, "classes": "layer2-4" },
+    { "data": { "source": "gateway3", "target": "device3", "label": "VLAN 450" }, "classes": "layer2-5" },
+    { "data": { "source": "FortiNAC", "target": "gateway1", "label": "VLAN 100" }, "classes": "layer3-1" },
+    { "data": { "source": "FortiNAC", "target": "gateway1", "label": "VLAN 200" }, "classes": "layer3-2" }
+  ]
+}

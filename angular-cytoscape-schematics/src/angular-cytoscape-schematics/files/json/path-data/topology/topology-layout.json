@@ -1,0 +1,13 @@
+{
+  "data": {
+    "name": "breadthfirst",
+    "grid": false,
+    "circle": false,
+    "directed": true,
+    "fit": true,
+    "avoidOverlap": true,
+    "animate": false,
+    "animationDuration": 500,
+    "animationEase": "ease-in-out"
+  }
+}

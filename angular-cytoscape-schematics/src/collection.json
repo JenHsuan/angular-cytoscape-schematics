@@ -3,7 +3,7 @@
   "schematics": {
     "angular-cytoscape-schematics": {
       "description": "A blank schematic.",
-      "factory": "./angular-cytoscape-schematics/index#angularCytoscapeSchematics"
+      "factory": "./angular-cytoscape-schematics/index#setupCytoscapeProject"
     }
   }
 }
