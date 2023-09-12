@@ -1,7 +1,7 @@
 # angular-cytoscape-schematics
 An Angular schematics command to setup the Cytoscape for the empty Angular project automatically.
 
-![demo](https://raw.githubusercontent.com/JenHsuan/angular-cytoscape-schematics/master/demo/screen-shot.png)
+![demo](https://raw.githubusercontent.com/JenHsuan/angular-cytoscape-schematics/master/demo/screen-shot.png?token=GHSAT0AAAAAACHIZXE3NAIJ4TITJV7IH64AZIAOLUA)
 
 ### Compatability
 * Angular 13
