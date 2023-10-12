@@ -22,7 +22,6 @@ export class AppComponent implements AfterViewInit {
       this.service.loadLayoutOptions()
     ]).subscribe(
       value => {
-        console.log(value)
         this.initCharts(value[0], value[1].style, value[2].data)
       }
     );

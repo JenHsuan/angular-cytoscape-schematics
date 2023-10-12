@@ -3,7 +3,13 @@
   "schematics": {
     "angular-cytoscape-schematics": {
       "description": "A blank schematic.",
-      "factory": "./angular-cytoscape-schematics/index#setupCytoscapeProject"
+      "factory": "./angular-cytoscape-schematics/index#setupCytoscapeProject",
+      "schema": "./angular-cytoscape-schematics/schema.json"
+    },
+    "ng-add": {
+      "description": "Add SCSS folder and directory file scaffolding.",
+      "factory": "./angular-cytoscape-schematics/index#setupCytoscapeProject",
+      "schema": "./angular-cytoscape-schematics/schema.json"
     }
   }
 }

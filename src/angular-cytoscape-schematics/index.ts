@@ -1,6 +1,7 @@
 import { normalize, strings } from '@angular-devkit/core';
 import { Rule, SchematicContext, SchematicsException, Source, Tree, apply, chain, forEach, mergeWith, move, template, url } from '@angular-devkit/schematics';
 import { NodePackageInstallTask } from '@angular-devkit/schematics/tasks';
+import { Schema } from './schema';
 
 /*
  * 1. Add json files to assets folder
@@ -10,7 +11,7 @@ import { NodePackageInstallTask } from '@angular-devkit/schematics/tasks';
  * 5. Add base folder
  * 6. npm install
  */
-export function setupCytoscapeProject(_options: any): Rule {
+export function setupCytoscapeProject(_options: Schema): Rule {
   return (tree: Tree, _context: SchematicContext) => {
     const workspaceConfigBuffer = tree.read('angular.json');
     if (!workspaceConfigBuffer) {
@@ -25,8 +26,8 @@ export function setupCytoscapeProject(_options: any): Rule {
     }
 
     //1. Add json files to assets folder
-    let sourceTemplate = url('./files/json');
-    let sourceParameterizedTemplates = applyWithOverwrite(sourceTemplate, [
+    let sourceTemplateForJson = url('./files/json');
+    let sourceParameterizedTemplatesForJson = applyWithOverwrite(sourceTemplateForJson, [
       template({
         ..._options,
         ...strings,
@@ -75,19 +76,31 @@ export function setupCytoscapeProject(_options: any): Rule {
       throw new SchematicsException('Not Angular CLI workspace');
     }
 
-    const tsconfigConfig = JSON.parse(tsconfigConfigBuffer!.toString().split('*/')[1]);
-    tsconfigConfig.compilerOptions = Object.assign(tsconfigConfig.compilerOptions, {
-      resolveJsonModule: true,
-      esModuleInterop: true,
-      noImplicitAny: false,
-      strictPropertyInitialization: false
-    });
-
-    tree.overwrite('./tsconfig.json', JSON.stringify(tsconfigConfig, null, 2));
-
+    if (!isJsonString(tsconfigConfigBuffer!.toString())) {
+      let list = tsconfigConfigBuffer!.toString().split('*/');
+      const tsconfigConfig = JSON.parse(list[1]);
+      tsconfigConfig.compilerOptions = Object.assign(tsconfigConfig.compilerOptions, {
+        resolveJsonModule: true,
+        esModuleInterop: true,
+        noImplicitAny: false,
+        strictPropertyInitialization: false
+      });
+  
+      tree.overwrite('./tsconfig.json', list[0] + '*/\r\n' + JSON.stringify(tsconfigConfig, null, 2));   
+    } else {
+      const tsconfigConfig = JSON.parse(tsconfigConfigBuffer!.toString());
+      tsconfigConfig.compilerOptions = Object.assign(tsconfigConfig.compilerOptions, {
+        resolveJsonModule: true,
+        esModuleInterop: true,
+        noImplicitAny: false,
+        strictPropertyInitialization: false
+      });
+  
+      tree.overwrite('./tsconfig.json', JSON.stringify(tsconfigConfig, null, 2));   
+    }
     //5. Add base folder
-    let sourceTemplate2 = url('./files/setup');
-    let sourceParameterizedTemplates2 = applyWithOverwrite(sourceTemplate2, [
+    let sourceTemplateForSetup = url('./files/setup');
+    let sourceParameterizedTemplatesForSetup = applyWithOverwrite(sourceTemplateForSetup, [
       template({
         ..._options,
         ...strings,
@@ -108,7 +121,7 @@ export function setupCytoscapeProject(_options: any): Rule {
       })
     );
 
-    return chain([sourceParameterizedTemplates, sourceParameterizedTemplates2]); // merge the template into tree
+    return chain([sourceParameterizedTemplatesForJson, sourceParameterizedTemplatesForSetup]); // merge the template into tree
 
   };
 }
@@ -161,4 +174,13 @@ function applyWithOverwrite(source: Source, rules: Rule[]): Rule {
 
     return rule(tree, _context);
   };
+}
+
+function isJsonString(str: string) {
+  try {
+      JSON.parse(str);
+  } catch (e) {
+      return false;
+  }
+  return true;
 }
