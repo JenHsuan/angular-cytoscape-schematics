@@ -1,6 +1,6 @@
 {
   "name": "angular-cytoscape-schematics",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "An Angular schematics to setup the Cytoscape for the empty Angular project.",
   "scripts": {
     "build": "tsc -p tsconfig.json",
