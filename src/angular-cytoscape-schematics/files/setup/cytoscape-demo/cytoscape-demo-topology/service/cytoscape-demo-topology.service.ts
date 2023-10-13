@@ -3,13 +3,13 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import * as cytoscape from 'cytoscape';
-import { CytoscapeDemoElement, CytoscapeDemoElementStyle, CytoscapeDemoOptions } from './cytoscape-demo.domain';
-import styleData from '../../../assets/path-data/topology/topology-style.js';
+import { CytoscapeDemoElement, CytoscapeDemoElementStyle, CytoscapeDemoOptions } from '../../service/cytoscape-demo.domain';
+import styleData from '../../../../assets/path-data/topology/topology-style.js';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CytoscapeDemoService {
+export class CytoscapeDemoTopologyService {
 
   constructor(protected http: HttpClient) { }
   listElements(): Observable<cytoscape.ElementDefinition[]> {

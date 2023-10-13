@@ -1,0 +1,11 @@
+{
+    "grid": {
+        "name": "grid",
+        "animate": false,
+        "animationDuration": 1000,
+        "edgeElasticity": 10000,
+        "nodeDimensionsIncludeLabels": true,
+        "cols": 5,
+        "rows": 1
+      }
+}

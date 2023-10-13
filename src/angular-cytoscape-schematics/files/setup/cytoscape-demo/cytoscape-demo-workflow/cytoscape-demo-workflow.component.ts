@@ -1,19 +1,18 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
-import { CytoscapeDemoService } from './cytoscape-demo/service/cytoscape-demo.service';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { combineLatest } from 'rxjs';
 import * as cytoscape from 'cytoscape';
+import { CytoscapeDemoWorkflowService } from './service/cytoscape-demo-workflow.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'app-cytoscape-demo-workflow',
+  templateUrl: './cytoscape-demo-workflow.component.html',
+  styleUrls: ['./cytoscape-demo-workflow.component.scss']
 })
-export class AppComponent implements AfterViewInit {
+export class CytoscapeDemoWorkflowComponent {
   @ViewChild("cy") cytoElem: ElementRef;
   cy: cytoscape.Core;
 
-  constructor(private service: CytoscapeDemoService) {
-
+  constructor(private service: CytoscapeDemoWorkflowService) {
   }
   ngAfterViewInit(): void {
     combineLatest([

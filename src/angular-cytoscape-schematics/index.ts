@@ -162,7 +162,7 @@ function applyWithOverwrite(source: Source, rules: Rule[]): Rule {
     const rule = mergeWith(
       apply(source, [
         ...rules,
-        forEach((fileEntry) => {
+        forEach((fileEntry: any) => {
           if (tree.exists(fileEntry.path)) {
             tree.overwrite(fileEntry.path, fileEntry.content);
             return null;

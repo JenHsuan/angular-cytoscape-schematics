@@ -1,0 +1,13 @@
+{
+  "nodes": [
+    { "data": { "id": "start", "label": "Start" }, "classes": "start" },
+    { "data": { "id": "process_systemd", "label": "Process Systemd" }, "classes": "process1" },
+    { "data": { "id": "process_dash", "label": "Process Dash" }, "classes": "process2" },
+    { "data": { "id": "process_user", "label": "Process User/bin/wget" }, "classes": "process3" },
+    { "data": { "id": "file", "label": "File" }, "classes": "destination" },
+    { "data": { "source": "start", "target": "process_systemd" }, "classes": "segment1" },
+    { "data": { "source": "process_systemd", "target": "process_dash", "label": "1 Create" }, "classes": "segment1" },
+    { "data": { "source": "process_dash", "target": "process_user", "label": "2 Create" }, "classes": "segment1" },
+    { "data": { "source": "process_user", "target": "file", "label": "3 Connect" }, "classes": "segment2" }
+  ]
+}

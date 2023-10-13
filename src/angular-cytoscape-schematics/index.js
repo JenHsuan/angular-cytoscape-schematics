@@ -84,6 +84,8 @@ function setupCytoscapeProject(_options) {
             (0, schematics_1.template)(Object.assign(Object.assign({}, _options), core_1.strings)),
             (0, schematics_1.move)((0, core_1.normalize)(`${project.sourceRoot}/app`))
         ]);
+        //6. Update app.component.html
+        updateAppComponent();
         //6. npm install
         const packageConfigBuffer = tree.read('package.json');
         if (!packageConfigBuffer) {
@@ -106,6 +108,19 @@ function createNewComponent(_options) {
     };
 }
 exports.createNewComponent = createNewComponent;
+function updateAppComponent() {
+    return (tree, _context) => {
+        const content = tree.read("src/app/app.component.html");
+        let strContent = '';
+        if (content)
+            strContent = content.toString();
+        //const appendIndex = strContent.indexOf('</ul>');
+        //const content2Append = '    <li><a href="/contact">contact</a></li> \n';
+        const updatedContent = `${strContent}\n<router-outlet></router-outlet>`;
+        tree.overwrite("./menu.component.html", updatedContent);
+        return tree;
+    };
+}
 function addModulePackageJson(host, pkg, version, isDev = false) {
     if (host.exists('package.json')) {
         let type = isDev ? 'devDependencies' : 'dependencies';
